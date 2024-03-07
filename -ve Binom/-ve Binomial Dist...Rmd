@@ -1,0 +1,45 @@
+---
+title: "-Binomial Distr.."
+output:
+  word_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+date: "2024-03-06"
+---
+Acereal company randomly places 1 of 5 different toys in each box of its cereal. One particuler child is trying to collect 6 copies of their favourite toy. This is a negative binomial experiment with p=0.2 and r = 6.
+
+1. What is the probability that they find the 6 copy of their favourite after finding exactly 25 other toys.
+
+2. What is the probability that they must open at least 20 disappointing boxes before finding the 6 copy of their favourite toy.
+
+3. Simulate the number of failures before the 6 success 1000 times and produce a histogram of the results. 
+
+```{r}
+dnbinom(25,6,0.2)
+```
+
+
+```{r}
+1-pnbinom(19,6, .2)
+```
+```{r}
+box <- rbinom(100,6, .2)
+box
+```
+```{r}
+qplot(box, bins=70,  geom="histogram",  col = I("blue"))
+```
+
+
+
+
+
+
+
+
+
+
+
+`
+
