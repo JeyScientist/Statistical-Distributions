@@ -1,0 +1,54 @@
+---
+title: "Binomial Dist.."
+output:
+  word_document: default
+  pdf_document: default
+date: "2024-02-28"
+---
+1. Let X represent the number of sixes in 10 rolls of a fair die. Simulate 50 runs     of this probability experiment.
+2. According to a recent survey 72% of Americans prefer dogs to cats. If 8 Americans are choosen at random, what is the probabilitythat 6 prefer dogs.That fewer than 6 do.
+3. A weighted coin has a 42% chance of coming up heads. What is the expected number of heads in 5 tosses. The standard deviation? Consruct a probability histogram for X, the number of heads in 5 tosses.
+```{r}
+rbinom(50, 10, 1/6)
+```
+
+
+
+```{r}
+table(rbinom(50, 10, 1/6))
+```
+
+
+
+```{r}
+dbinom(6, 8, .72)
+```
+```{r}
+pbinom(5, 8, .72)
+```
+```{r}
+x <- 0:5
+x
+```
+```{r}
+p <- dbinom(x, 5, .42)
+p
+```
+```{r}
+sum(p)
+```
+```{r}
+weighted.mean(x,p)
+```
+````{r}
+weighted.mean((x-2.1)^2, p)
+```
+````{r}
+weighted.mean((x-2.1)^2, p)^.5
+```
+````{r}
+library(tidyverse)
+qplot(x, weight=p, geom ="histogram", bins=6, col=I("black"))
+```
+
+``{r}
