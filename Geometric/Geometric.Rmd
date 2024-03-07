@@ -1,0 +1,34 @@
+---
+title: "Geometric"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+  pdf_document: default
+date: "2024-02-29"
+---
+According to a survey. 13% of Americans do not wear their seatbelt regularly.
+1. What is the probability that a pollster calls exactly 8 people before reaching      someone who does not wear their seatbelt regularly.
+2. What is the probability that the pollster calls between 6 and 10 people(inclusive) before reaching someone who does not wear their seatbelt regularly.
+3. Agroup of 200 pollsters each counts the number of calls before reaching someone who does not wear their seatbelt regularly.Simulate the results.
+```{r}
+dgeom(8, .13)
+```
+
+
+```{r}
+pgeom(10, .13)-pgeom(5,.13)
+
+```
+```{r}
+calls <- rgeom(200, .13)
+calls
+```
+```{r}
+summary(calls)
+``` 
+```{r}
+library(tidyverse)
+qplot(calls, geom="histogram", bins=44, col="blue")
+``` 
+
