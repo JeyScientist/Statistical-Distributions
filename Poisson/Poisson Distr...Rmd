@@ -1,0 +1,35 @@
+---
+title: "Poisson Dist.."
+output:
+  pdf_document: default
+  word_document: default
+date: "2024-02-27"
+---
+Calls to a customer service line come at an average rate of 6 every 5 minutes.
+
+1. What is the probability that there are exactly 4 calls in a 5 minute period.
+   That there are at least 4.
+2.Construct a probability histogram for the number of calls to the line in a given 5   minute period.
+3. Simulate the number of calls in 50 such periods.
+```{r}
+dpois(4,6)
+```
+```{r}
+1-ppois(3,6)
+```
+
+```{r}
+x=0:15
+probs<- dpois(x,6)
+probs
+```
+
+
+
+```{r}
+qplot(x, weight=probs, geom ="histogram", bins=16, col=I("red"))
+```
+plotted the above vectors
+```{r}
+rpois(50,6)
+```
